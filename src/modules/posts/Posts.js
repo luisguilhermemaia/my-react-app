@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Post from './components/post/Post'
 
 class Posts extends Component {
   constructor(props) {
@@ -8,16 +9,17 @@ class Posts extends Component {
       isLoaded: false,
       posts: []
     };
-  }
+  };
 
   componentDidMount() {
+    //Fetch to a fake api, this time using promises
     fetch("https://jsonplaceholder.typicode.com/comments")
       .then(res => res.json())
       .then(
-        (result) => {
+        (posts) => {
           this.setState({
             isLoaded: true,
-            posts: result
+            posts
           });
         },
         (error) => {
@@ -27,7 +29,7 @@ class Posts extends Component {
           });
         }
       )
-  }
+  };
 
   render() {
     const { error, isLoaded, posts } = this.state;
@@ -36,17 +38,14 @@ class Posts extends Component {
     } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
-      return (
-        <ul>
-          {posts.map(post => (
-            <li key={post.id}>
-              {post.name} {post.body}
-            </li>
-          ))}
-        </ul>
+      const postItems = posts.map((post) =>
+        <Post key={post.id} post={post} />
       );
-    }
-  }
-}
+      return (
+        <ul>{postItems}</ul>
+      );
+    };
+  };
+};
 
 export default Posts;
