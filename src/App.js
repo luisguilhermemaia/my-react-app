@@ -7,6 +7,7 @@ import {
 
 import Login from './modules/user/Login'
 import Register from './modules/user/Register'
+import Posts from './modules/posts/Posts'
 
 import './App.css';
 
@@ -18,6 +19,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/login" component={Login} />
             <Route path="/register" component={Register} />
+            <Route path="/posts" component={Posts} />
           </Switch>
         </Router>
       </div >
