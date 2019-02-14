@@ -26,13 +26,24 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
 });
 class Register extends Component {
-  handleSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+  handleSubmit = async (values, { setSubmitting }) => {
+    //Fetch to a fake api, using async await
+    try {
+      var response = await fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+      console.log(await response.json());
+
       setSubmitting(false);
       this.props.history.push('/posts');
-    }, 500);
-  }
+    } catch (error) {
+      console.warn(error);
+    }
+  };
 
   render() {
     return (
@@ -124,6 +135,6 @@ class Register extends Component {
       </Formik>
     );
   }
-}
+};
 
 export default withRouter(Register);

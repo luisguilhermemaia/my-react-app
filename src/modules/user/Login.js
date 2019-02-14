@@ -4,8 +4,8 @@ import { Field, ErrorMessage, Formik } from 'formik';
 import * as Yup from 'yup';
 
 const initialValues = {
-  email: '',
-  password: '',
+  email: 'Sincere@april.biz',
+  password: '123456',
 };
 
 const validationSchema = Yup.object().shape({
@@ -18,12 +18,20 @@ const validationSchema = Yup.object().shape({
     .required('Required'),
 });
 class Login extends Component {
-  handleSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
-      setSubmitting(false);
-      this.props.history.push('/posts');
-    }, 500);
+  handleSubmit = async (values, { setSubmitting }) => {
+    //Fetch to a fake api, using async await
+    try {
+      var response = await fetch('https://jsonplaceholder.typicode.com/users');
+      var users = await response.json();
+      var parsedFormValues = JSON.stringify(values);
+      var existingUser = users.filter(user => user.email = parsedFormValues.email);
+      if (existingUser) {
+        setSubmitting(false);
+        this.props.history.push('/posts');
+      }
+    } catch (error) {
+      console.warn(error);
+    }
   }
 
   render() {
@@ -74,7 +82,7 @@ class Login extends Component {
                 <p>
                   Not yet a user?&emsp;
                   <Link to="/register">
-                      Register now!
+                    Register now!
                   </Link>
                 </p>
               </div>
