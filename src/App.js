@@ -5,6 +5,7 @@ import {
   Switch
 } from 'react-router-dom'
 import styled, { createGlobalStyle } from 'styled-components';
+import Nav from './modules/layout/nav/Nav'
 import Login from './modules/user/Login'
 import Register from './modules/user/Register'
 import Posts from './modules/posts/Posts'
@@ -30,11 +31,14 @@ class App extends Component {
         <GlobalStyle />
         <Page>
           <Router>
-            <Switch>
-              <Route exact path="/login" component={Login} />
-              <Route path="/register" component={Register} />
-              <Route path="/posts" component={Posts} />
-            </Switch>
+            <React.Fragment>
+              <Nav />
+              <Switch>
+                <Route exact path="/" component={Login} />
+                <Route path="/register" component={Register} />
+                <Route path="/posts" component={Posts} />
+              </Switch>
+            </React.Fragment>
           </Router>
         </Page>
       </React.Fragment>

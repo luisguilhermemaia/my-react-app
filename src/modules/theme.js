@@ -9,6 +9,31 @@ export const Container = styled.div`
   margin-top: 0;
 `;
 
+export const NavContainer = styled.nav`
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.24);
+  background-color: white;
+  border-bottom: 1px solid lighten($text, 60%);
+  left: 0;
+  padding: 16px 24px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+`;
+
+export const Logo = styled.img`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: .4s;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: .4s;
+    transform: scale(1.09);
+  }
+`;
+
 export const FileUploader = styled.div`
   margin: 0 auto;
   padding: 24px;

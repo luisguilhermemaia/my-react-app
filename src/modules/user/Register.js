@@ -106,7 +106,7 @@ class Register extends Component {
               </FormBody>
               <Text>
                 Already a user?&emsp;
-                <Link to="/login">
+                <Link to="/">
                   Sign in
                 </Link>
               </Text>
