@@ -6,12 +6,12 @@ export const Container = styled.div`
   margin: 0 auto;
   padding: 24px;
   height: 100vh;
-  margin-top: 0;
+  margin-top: 20px;
 `;
 
 export const NavContainer = styled.nav`
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.24);
-  background-color: white;
+  background-color: #e9eaec;
   border-bottom: 1px solid lighten($text, 60%);
   left: 0;
   padding: 16px 24px;
@@ -22,8 +22,8 @@ export const NavContainer = styled.nav`
 `;
 
 export const Logo = styled.img`
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   transition: .4s;
   &:hover {
@@ -142,7 +142,7 @@ export const UploadedImg = styled.img`
   border-radius: 50%;
   transition: .4s;
   &:hover {
-    cursor: pointer
+    cursor: pointer;
     box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
     transition: .4s;
     transform: scale(1.09);
@@ -187,6 +187,6 @@ export const Title2 = styled.h2`
 export const Text = styled.p`
   font-family: 'Raleway', sans-serif;
   color: ${props => props.color || '#FFFFFF'};
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   padding-bottom: 1rem;
 `;

@@ -11,7 +11,7 @@ const Nav = ({ location }) => {
   }
   return (
     <NavContainer>
-      <div className="navLogo">
+      <div>
         <Link to="/">
           <Logo src={logo} alt="lock" />
         </Link>
