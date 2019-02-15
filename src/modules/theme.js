@@ -46,6 +46,22 @@ export const Form = styled.form`
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 20px 0 rgba(0, 0, 0, 0.24);
 `;
 
+export const PostList = styled.ul`
+  list-style: none;
+  padding: 0;
+`;
+
+export const PostItem = styled.li`
+  background-color: #fff;
+  border-radius: 6px;
+  box-sizing: border-box;
+  box-shadow: 0 6px 20px -10px #6d7689;
+  padding: 20px;
+  position: relative;
+  width: 100%;
+  margin-bottom: 20px;
+`;
+
 export const Field = styled(FormikField)`
   width: 100%;
   height: 35px;
@@ -129,17 +145,17 @@ export const Input = styled.input`
 `;
 
 export const Title = styled.h1`
+  color: ${props => props.color || '#FFFFFF'};
   font-family: 'Raleway', sans-serif;
   font-weight: 600;
-  color: #FFFFFF;
   font-size: 1.2rem;
   margin-bottom: 0.25rem;
 `;
 
 export const Title2 = styled.h2`
+  color: ${props => props.color || '#FFFFFF'};
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
-  color: #FFFFFF;
   font-size: 0.7rem;
 `;
 

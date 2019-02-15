@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Post from './components/post/Post'
+import { Container, PostList } from '../theme';
 
 class Posts extends Component {
   constructor(props) {
@@ -42,7 +43,9 @@ class Posts extends Component {
         <Post key={post.id} post={post} />
       );
       return (
-        <ul>{postItems}</ul>
+        <Container>
+          <PostList>{postItems}</PostList>
+        </Container>
       );
     };
   };

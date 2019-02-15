@@ -1,26 +1,24 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { PostItem, Title, Title2 } from '../../../theme';
 
 class Post extends Component {
   render() {
     const { post } = this.props;
 
     return (
-      <li>
-        {post.name}
-        {post.body}
-        {post.email}
-      </li>
+      <PostItem>
+        <Title color="#222">
+          {post.name}
+        </Title>
+        <Title2 color="#222">
+          {post.email}
+        </Title2>
+        <Title2 color="#222">
+          {post.body}
+        </Title2>
+      </PostItem>
     )
   };
-};
-
-Post.propTypes = {
-  post: PropTypes.shape({
-    name: PropTypes.string,
-    body: PropTypes.string,
-    email: PropTypes.string,
-  })
 };
 
 export default Post;
