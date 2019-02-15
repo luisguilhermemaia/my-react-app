@@ -12,7 +12,7 @@ class Posts extends Component {
   };
 
   componentDidMount() {
-    //Fetch to a fake api, this time using promises
+    // Fetch to api, using promises
     fetch("https://jsonplaceholder.typicode.com/comments")
       .then(res => res.json())
       .then(

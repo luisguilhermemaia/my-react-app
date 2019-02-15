@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Label, Input, Img, UploadedImg } from '../../../theme';
+import user from '../../../../user.svg';
 
 export default class PictureUploader extends Component {
   state = {
@@ -28,30 +30,30 @@ export default class PictureUploader extends Component {
   render() {
     const { value } = this.props;
     return (
-      <div>
+      <React.Fragment>
         {
           value
             ? (
-              <img
+              <UploadedImg
                 src={value}
                 alt="profile"
                 onClick={this.clear}
-                onKeyPress={() => {}}
+                onKeyPress={() => { }}
               />
             )
             : (
-              <label htmlFor="file-chooser">
-                <i className="li-picture" />
-                <div>Upload</div>
-                <input
+              <Label>
+                <Img src={user} alt="user" />
+                <Input
+                  displaynone="true"
                   id="file-chooser"
                   type="file"
                   onChange={this.onFileChange.bind(this)}
                 />
-              </label>
+              </Label>
             )
         }
-      </div>
+      </React.Fragment>
     );
   }
 }
