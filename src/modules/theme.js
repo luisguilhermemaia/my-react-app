@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Field as FormikField, ErrorMessage } from 'formik';
+import { Link as ReactRouterLink } from 'react-router-dom';
 
 export const Container = styled.div`
   margin: 0 auto;
   padding: 24px;
   height: 100vh;
-  margin-top: 20px;
+  margin-top: 40px;
 `;
 
 export const NavContainer = styled.nav`
@@ -167,6 +168,11 @@ export const Button = styled.button`
 
 export const Input = styled.input`
   display: ${props => props.displaynone ? 'none' : ''};
+`;
+
+export const Link = styled(ReactRouterLink)`
+  color: blue;
+  font-weight: bold;
 `;
 
 export const Title = styled.h1`

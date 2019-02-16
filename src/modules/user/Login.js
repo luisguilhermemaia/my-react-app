@@ -1,14 +1,25 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import * as Yup from 'yup';
 
 import { Formik } from 'formik';
-import { Form, FormHeader, FormBody, Field, Button, ValidationError, Text, Title, Title2 } from '../theme';
+import {
+  Form,
+  FormHeader,
+  FormBody,
+  Field,
+  Button,
+  ValidationError,
+  Text,
+  Title,
+  Title2,
+  Link
+} from '../theme';
 import lock from '../../lock.svg';
 
 const initialValues = {
   email: 'Sincere@april.biz',
-  password: '123456',
+  password: '123456'
 };
 
 const validationSchema = Yup.object().shape({
@@ -18,7 +29,7 @@ const validationSchema = Yup.object().shape({
   password: Yup.string()
     .min(4)
     .max(8)
-    .required('Required'),
+    .required('Required')
 });
 
 class Login extends Component {
@@ -30,7 +41,9 @@ class Login extends Component {
       var parsedFormValues = JSON.stringify(values);
 
       // 'Simple' if to validate if the user exists
-      var existingUser = users.filter(user => user.email = parsedFormValues.email);
+      var existingUser = users.filter(
+        user => (user.email = parsedFormValues.email)
+      );
 
       if (existingUser) {
         setSubmitting(false);
@@ -39,7 +52,7 @@ class Login extends Component {
     } catch (error) {
       console.warn(error);
     }
-  }
+  };
 
   render() {
     return (
@@ -49,10 +62,7 @@ class Login extends Component {
         onSubmit={this.handleSubmit}
       >
         {props => {
-          const {
-            isSubmitting,
-            handleSubmit,
-          } = props;
+          const { isSubmitting, handleSubmit } = props;
           return (
             <Form onSubmit={handleSubmit}>
               <FormHeader>
@@ -85,9 +95,7 @@ class Login extends Component {
               </FormBody>
               <Text>
                 Don't have account?&emsp;
-                <Link to="/register">
-                  Sign up here.
-                </Link>
+                <Link to="/register">Sign up here.</Link>
               </Text>
             </Form>
           );

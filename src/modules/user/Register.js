@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import PictureUploader from './components/picture-uploader/PitctureUploader';
-import { Form, ValidationError, FormBody, Field, Button, Text } from '../theme';
+import {
+  Form,
+  ValidationError,
+  FormBody,
+  Field,
+  Button,
+  Text,
+  Link
+} from '../theme';
 
 const initialValues = {
   email: '',
@@ -14,8 +22,7 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object().shape({
-  fullName: Yup.string()
-    .required('Required'),
+  fullName: Yup.string().required('Required'),
   email: Yup.string()
     .email()
     .required('Required'),
@@ -23,8 +30,7 @@ const validationSchema = Yup.object().shape({
     .min(4)
     .max(8)
     .required('Required'),
-  dateOfBirth: Yup.date()
-    .required('Required'),
+  dateOfBirth: Yup.date().required('Required')
 });
 
 class Register extends Component {
@@ -35,7 +41,7 @@ class Register extends Component {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
-          "Content-type": "application/json; charset=UTF-8"
+          'Content-type': 'application/json; charset=UTF-8'
         }
       });
       console.log(await response.json());
@@ -55,12 +61,7 @@ class Register extends Component {
         onSubmit={this.handleSubmit}
       >
         {props => {
-          const {
-            values,
-            isSubmitting,
-            handleSubmit,
-            handleChange,
-          } = props;
+          const { values, isSubmitting, handleSubmit, handleChange } = props;
           return (
             <Form onSubmit={handleSubmit}>
               <PictureUploader
@@ -106,9 +107,7 @@ class Register extends Component {
               </FormBody>
               <Text>
                 Already a user?&emsp;
-                <Link to="/">
-                  Sign in
-                </Link>
+                <Link to="/">Sign in</Link>
               </Text>
             </Form>
           );
@@ -116,6 +115,6 @@ class Register extends Component {
       </Formik>
     );
   }
-};
+}
 
 export default withRouter(Register);

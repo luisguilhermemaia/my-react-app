@@ -21,7 +21,7 @@ const Page = styled.div`
   display: flex;
   justify-content: center;
   min-height: 100vh;
-  padding: 1.5rem;
+  padding: 0 1.5rem 0 1.5rem;
 `;
 
 class App extends Component {
