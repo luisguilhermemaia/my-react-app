@@ -13,7 +13,7 @@ const Nav = ({ location }) => {
     <NavContainer>
       <div>
         <Link to="/">
-          <Logo src={logo} alt="lock" />
+          <Logo src={logo} alt="logo" />
         </Link>
       </div>
     </NavContainer>

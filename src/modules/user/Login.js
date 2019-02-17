@@ -42,7 +42,7 @@ class Login extends Component {
 
       // 'Simple' if to validate if the user exists
       var existingUser = users.filter(
-        user => (user.email = parsedFormValues.email)
+        user => (user.email === parsedFormValues.email)
       );
 
       if (existingUser) {
